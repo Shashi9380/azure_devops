@@ -1,0 +1,26 @@
+trigger:
+- master
+
+pool:
+ vmImage: 'ubuntu:latest'
+
+jobs:
+- job: Job1
+  steps:
+    - script: echo 'my first pipeline'
+      displayName: 'run the first line code'
+- job: Job2
+  steps:
+    - script: echo 'my second pipeline'
+      displayName: 'run the second line code'
+- job: Job3
+  dependsOn: Job2
+  steps:
+    - script: echo 'depends on job2 pipeline'
+- job: job4
+  dependsOn:
+  - job2
+  - job3
+  steps:
+    - script: echo 'depends on job2,job3 pipeline'
+      displayName: 'run the second'
