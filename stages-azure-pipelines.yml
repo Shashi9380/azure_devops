@@ -13,17 +13,22 @@ stages:
         steps:
           - bash: echo build code
   - stage: Test
+    dependsOn: Build
     jobs:
       - job: TestDeploy
         steps:
           - bash: echo test deploy
     
-  - stage: QA
+  - stage: Qa
+    dependsOn: Build
     jobs:
       - job: QaDeploy
         steps:
           - bash: echo qa deploy
   - stage: Prod
+    dependsOn:
+    - Test
+    - Qa
     jobs:
       - job: ProdDeploy
         steps:
