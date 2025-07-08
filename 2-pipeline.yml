@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
- vmImage: 'ubuntu:latest'
+  vmImage: 'ubuntu-latest'
 
 jobs:
 - job: Job1
@@ -19,8 +19,8 @@ jobs:
     - script: echo 'depends on job2 pipeline'
 - job: job4
   dependsOn:
-  - job2
-  - job3
+    - Job2
+    - Job3
   steps:
     - script: echo 'depends on job2,job3 pipeline'
       displayName: 'run the second'
