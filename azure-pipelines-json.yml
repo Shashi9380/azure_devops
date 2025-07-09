@@ -9,13 +9,12 @@ steps:
 - bash: |
     set -euo pipefail
 
-    echo "🔧 Installing jq…"
     sudo apt-get update -y
     sudo apt-get install -y jq
 
     curl -sL \
       'https://api.open-meteo.com/v1/forecast?latitude=12.97&longitude=77.59&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_probability_mean&timezone=Asia%2FKolkata' \
-      | jq  > forecast.json
+      | jq . > forecast.json
 
   
     head -n 40 forecast.json
