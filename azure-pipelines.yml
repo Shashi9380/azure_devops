@@ -11,6 +11,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    curl --location  'https://jsonplaceholder.typicode.com/todos/1' tee file.txt
+    curl --location  'https://jsonplaceholder.typicode.com/todos/1' | tee file.txt
+    echo file.txt
     cat file.txt
   displayName: 'Run a multi-line script'
