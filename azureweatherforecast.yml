@@ -19,4 +19,4 @@ steps:
     echo file.txt
     cat file.txt
     
-displayName: 'Run a multi-line script'
+ displayName: 'Run a multi-line script'
